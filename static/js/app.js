@@ -48,8 +48,34 @@ function buildChart(year){
 
 }
 
+function init(){
+    let dropDownMenu = d3.select('#selDataset_yr');
+    d3.json(query_url).then(function(data){
+        // console.log(data);
 
-buildChart(2015)
+        // sub_ID = data.names;
+        console.log(sub_ID);
+        sub_ID.forEach((sample) => {
+            dropDownMenu.append("option").property("value", sample).text(sample);
+        })
+    });
+
+    buildChart(year);
+
+    // addmetaData(940);
+}
+
+// create event handler onchange defined in index.html by creating the function on "optionChanged"
+
+function optionChanged(year){
+    // addmetaData(sample);
+    buildChart(year);
+}
+
+init()
+
+
+// buildChart(2015)
 
 
 
