@@ -49,33 +49,24 @@ function buildChart(year){
 }
 
 function init(){
-    let dropDownMenu = d3.select('#selDataset_yr');
-    d3.json(query_url).then(function(data){
-        // console.log(data);
-
-        // sub_ID = data.names;
-        console.log(sub_ID);
-        sub_ID.forEach((sample) => {
-            dropDownMenu.append("option").property("value", sample).text(sample);
-        })
-    });
-
+    // let dropDownMenu = d3.select('#selDataset_yr');
+    
     buildChart(year);
 
     // addmetaData(940);
 }
 
-// create event handler onchange defined in index.html by creating the function on "optionChanged"
+// // create event handler onchange defined in index.html by creating the function on "optionChanged"
 
-function optionChanged(year){
-    // addmetaData(sample);
-    buildChart(year);
-}
+// function optionChanged(year){
+//     // addmetaData(sample);
+//     buildChart(year);
+// }
+
 
 init()
+d3.select('#selDataset_yr').on('change', d=>buildChart(e.value)
 
 
 // buildChart(2015)
-
-
 
