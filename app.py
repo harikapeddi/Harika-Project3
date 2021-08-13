@@ -64,7 +64,7 @@ def filter_year(year):
 @app.route('/api/v1.0/<year>/<primary_type>')
 def filter_yr_type(year, primary_type):
     session = Session(engine)
-    result = session.query(db.description, func.count(db.description)).group_by(db.year, db.primary_type, db.description).filter(db.year == year).filter(db.primary_type == primary_type).order_by(func.count(db.description).desc()).all()
+    # result = session.query(db.description, func.count(db.description)).group_by(db.year, db.primary_type, db.description).filter(db.year == year).filter(db.primary_type == primary_type).order_by(func.count(db.description).desc()).all()
     primary_type = primary_type.upper()
     # result = session.query(db.description, func.count(db.description)).group_by(db.year, db.primary_type, db.description).filter(db.year == year).filter(db.primary_type == primary_type).order_by(func.count(db.description).desc()).all()
     description_count = session.query(db.description, func.count(db.description)).group_by(db.year, db.primary_type, db.description).filter(db.year == year).filter(db.primary_type == primary_type).order_by(func.count(db.description).desc()).all()
